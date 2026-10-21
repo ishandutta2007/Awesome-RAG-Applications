@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="35%" stop-color="#818cf8"/>
+      <stop offset="70%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+
+    <linearGradient id="pillGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <linearGradient id="pillGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#7e22ce" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <linearGradient id="pillGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <radialGradient id="glowCyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glowPurple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glowEmerald" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="techGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.8" stroke-opacity="0.45"/>
+      <circle cx="40" cy="0" r="1.5" fill="#38bdf8" fill-opacity="0.3"/>
+    </pattern>
+
+    <style>
+      @keyframes floatSlow {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.35; transform: scale(1); }
+        50% { opacity: 0.65; transform: scale(1.12); }
+      }
+      @keyframes flowData {
+        0% { stroke-dashoffset: 120; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes radarBeam {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .glow-pulse-1 {
+        transform-origin: 200px 160px;
+        animation: pulseGlow 6s ease-in-out infinite alternate;
+      }
+      .glow-pulse-2 {
+        transform-origin: 1000px 220px;
+        animation: pulseGlow 7s ease-in-out infinite alternate 1.5s;
+      }
+      .data-flow-1 {
+        stroke-dasharray: 10, 15;
+        animation: flowData 4s linear infinite;
+      }
+      .data-flow-2 {
+        stroke-dasharray: 8, 12;
+        animation: flowData 3s linear infinite reverse;
+      }
+      .title-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        font-size: 54px;
+        letter-spacing: -1.2px;
+      }
+      .sub-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        font-size: 19px;
+        fill: #94a3b8;
+        letter-spacing: 0.2px;
+      }
+      .pill-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        letter-spacing: 0.4px;
+      }
+    </style>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="420" rx="16" fill="url(#bgGrad)"/>
+  <rect width="1200" height="420" rx="16" fill="url(#techGrid)"/>
+
+  <!-- Dynamic Glowing Ambient Nodes (Behind all foreground text) -->
+  <g class="glow-pulse-1">
+    <circle cx="200" cy="160" r="180" fill="url(#glowCyan)"/>
+  </g>
+  <g class="glow-pulse-2">
+    <circle cx="1000" cy="220" r="210" fill="url(#glowPurple)"/>
+  </g>
+  <circle cx="600" cy="360" r="150" fill="url(#glowEmerald)"/>
+
+  <!-- Dynamic Animated Circuit / Flow Lines (Background Layers) -->
+  <g opacity="0.6">
+    <!-- Flow Line Left to Center -->
+    <path d="M 80 90 H 280 L 360 170 V 250" fill="none" stroke="#38bdf8" stroke-width="1.8" class="data-flow-1"/>
+    <circle cx="80" cy="90" r="3.5" fill="#38bdf8"/>
+    <circle cx="280" cy="90" r="2.5" fill="#38bdf8"/>
+
+    <!-- Flow Line Right to Center -->
+    <path d="M 1120 330 H 940 L 860 250 V 170" fill="none" stroke="#a855f7" stroke-width="1.8" class="data-flow-2"/>
+    <circle cx="1120" cy="330" r="3.5" fill="#a855f7"/>
+    <circle cx="940" cy="330" r="2.5" fill="#a855f7"/>
+
+    <!-- Bottom Horizontal Interlink -->
+    <path d="M 160 350 H 1040" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="6, 6"/>
+    <path d="M 300 350 H 900" fill="none" stroke="#34d399" stroke-width="1.8" class="data-flow-1"/>
+    <circle cx="300" cy="350" r="3" fill="#34d399"/>
+    <circle cx="900" cy="350" r="3" fill="#34d399"/>
+  </g>
+
+  <!-- Top Decorative Tech Border Accent -->
+  <path d="M 40 16 H 1160" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <rect x="520" y="14" width="160" height="4" rx="2" fill="url(#textGrad)"/>
+
+  <!-- FOREGROUND LAYER: Content remains crisp, centered, and 100% visible -->
+  <g transform="translate(600, 155)">
+    <!-- Main Title with high contrast drop-shadow -->
+    <text class="title-text" text-anchor="middle" fill="#000000" opacity="0.6" y="2">Awesome RAG Applications</text>
+    <text class="title-text" text-anchor="middle" fill="url(#textGrad)" y="0">Awesome RAG Applications</text>
+
+    <!-- Subtitle -->
+    <text class="sub-text" text-anchor="middle" y="44">
+      Enterprise Knowledge Search • Cited Document Intelligence • Self-Hosted &amp; Sovereign AI
+    </text>
+  </g>
+
+  <!-- Feature Pills Bar (Foreground, protected layout) -->
+  <g transform="translate(600, 260)">
+    <!-- Pill 1: Enterprise Search -->
+    <g transform="translate(-400, 0)">
+      <rect x="-10" y="-18" width="180" height="36" rx="18" fill="url(#pillGrad1)" stroke="#38bdf8" stroke-width="1.2"/>
+      <circle cx="10" cy="0" r="4" fill="#38bdf8"/>
+      <text class="pill-text" x="88" y="4" text-anchor="middle" fill="#7dd3fc">🏢 Enterprise Search</text>
+    </g>
+
+    <!-- Pill 2: Cited Q&A -->
+    <g transform="translate(-135, 0)">
+      <rect x="-10" y="-18" width="160" height="36" rx="18" fill="url(#pillGrad2)" stroke="#a855f7" stroke-width="1.2"/>
+      <circle cx="10" cy="0" r="4" fill="#c084fc"/>
+      <text class="pill-text" x="78" y="4" text-anchor="middle" fill="#e9d5ff">📌 Cited Q&amp;A</text>
+    </g>
+
+    <!-- Pill 3: Self-Hosted -->
+    <g transform="translate(105, 0)">
+      <rect x="-10" y="-18" width="165" height="36" rx="18" fill="url(#pillGrad3)" stroke="#10b981" stroke-width="1.2"/>
+      <circle cx="10" cy="0" r="4" fill="#34d399"/>
+      <text class="pill-text" x="80" y="4" text-anchor="middle" fill="#a7f3d0">🛡️ Self-Hosted RAG</text>
+    </g>
+
+    <!-- Pill 4: Hybrid Vectors -->
+    <g transform="translate(340, 0)">
+      <rect x="-10" y="-18" width="170" height="36" rx="18" fill="url(#pillGrad1)" stroke="#0284c7" stroke-width="1.2"/>
+      <circle cx="10" cy="0" r="4" fill="#38bdf8"/>
+      <text class="pill-text" x="82" y="4" text-anchor="middle" fill="#bae6fd">⚡ Hybrid Search</text>
+    </g>
+  </g>
+
+  <!-- Bottom Accent / Stats Hint -->
+  <g transform="translate(600, 350)">
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#64748b" text-anchor="middle" letter-spacing="1.5">
+      CURATED ECOSYSTEM OF PRODUCTION-GRADE PLATFORMS &amp; OPEN SOURCE ENGINES
+    </text>
+  </g>
+</svg>
